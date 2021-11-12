@@ -236,14 +236,14 @@ var sanity = 0x07;
 alert("array256="+hex(array256)+" ui32a="+hex(ui32a)+" sanity="+hex(sanity));
 
 var rd_arr = makeReader(array256, 'ffs5');
-var butterfly = 0x0;
+var butterfly = 0x6;
 
 var rd_ui32 = makeReader(ui32a, 'ffs6');
 for(var i = 0; i < 8; i++)
     union_b[i] = rd_ui32.charCodeAt(i);
 
-var structureid_low = union_i[0];
-var structureid_high = union_i[1];
+var structureid_low = union_i[1];
+var structureid_high = union_i[0];
 
 alert("butterfly="+hex(butterfly)+" structureid="+structureid_low);
 
