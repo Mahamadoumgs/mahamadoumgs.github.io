@@ -300,7 +300,7 @@ window.addrof = function(obj)
     return union_i[1] * 0x100000000 + union_i[0];
 }
 
-/*window.fakeobj = function(addr)
+window.fakeobj = function(addr)
 {
     union_i[0] = addr;
     union_i[1] = (addr - addr % 0x100000000) / 0x100000000;
@@ -309,7 +309,7 @@ window.addrof = function(obj)
 }
 
 alert("addrof(null)="+addrof(null)+" fakeobj(10)="+fakeobj(10));
-*\
+
 //craft misaligned typedarray
 
 var arw_master = new Uint32Array(8);
