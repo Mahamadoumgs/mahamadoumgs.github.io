@@ -236,7 +236,7 @@ var sanity = 0x07;
 alert("array256="+hex(array256)+" ui32a="+hex(ui32a)+" sanity="+hex(sanity));
 
 var rd_arr = makeReader(array256, 'ffs5');
-var butterfly = stringToPtr(rd_arr, 8);
+var butterfly = 0x6;
 
 var rd_ui32 = makeReader(ui32a, 'ffs6');
 for(var i = 0; i < 8; i++)
