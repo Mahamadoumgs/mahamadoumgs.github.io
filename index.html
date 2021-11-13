@@ -68,18 +68,7 @@ return retv;
 };
 return this;
 };
-/*function makeid(){
-var text="";
-var possible="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-for(var i=0;i<8;i++){
-text+=possible.charAt(Math.floor(Math.random()*possible.length));
-};return text;
-};
-var instancespr=[];
-for(var i=0;i<4096;i++){
-instancespr[i]=new Uint32Array(1);
-instancespr[i][makeid()]=50057;
-};*/
+
 var _dview;function u2d(low,hi){
 if(!_dview)_dview=new DataView(new ArrayBuffer(16));
 _dview.setUint32(0,hi);_dview.setUint32(4,low);
@@ -143,7 +132,7 @@ props[i++]={value:tgt};
   var leak;
 var foundLeak=undefined;
 var foundIndex=0;
-var maxCount=48;
+var maxCount=100;
   
 while(foundLeak==undefined&&maxCount>0){
 maxCount--;
