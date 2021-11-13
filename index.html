@@ -78,7 +78,7 @@ text+=possible.charAt(Math.floor(Math.random()*possible.length));
 var instancespr=[];
 for(var i=0;i<4096;i++){
 instancespr[i]=new Uint32Array(1);
-instancespr[i]=50057;
+instancespr[i][makeid()]=50057;
 };
 var _dview;function u2d(low,hi){
 if(!_dview)_dview=new DataView(new ArrayBuffer(16));
