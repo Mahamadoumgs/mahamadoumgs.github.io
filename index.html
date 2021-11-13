@@ -140,7 +140,7 @@ props[i++]={value:1111638594};
 props[i++]={value:tgt};
 };
 
-  
+  var leak;
 var foundLeak=undefined;
 var foundIndex=0;
 var maxCount=100;
@@ -156,7 +156,8 @@ foundLeak=leak;break;
 };
 };
 };
-if(foundLeak==leak){
+  foundLeak=leak;
+if(!foundLeak){
 throw new Error("infoleak fail");
 };
 Array.prototype.__defineGetter__(100,()=>1);
