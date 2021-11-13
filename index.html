@@ -156,7 +156,7 @@ foundLeak=leak;break;
 };
 };
 };
-if(foundLeak==undefined){
+if(foundLeak==leak){
 throw new Error("infoleak fail");
 };
 Array.prototype.__defineGetter__(100,()=>1);
