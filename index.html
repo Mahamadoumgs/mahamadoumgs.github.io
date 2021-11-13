@@ -75,7 +75,7 @@ for(var i=0;i<8;i++){
 text+=possible.charAt(Math.floor(Math.random()*possible.length));
 };return text;
 };
-var instancespr=[];
+var instancespr=[][];
 for(var i=0;i<4096;i++){
 instancespr[i]=new Uint32Array(1);
 instancespr[i][makeid()]=50057;
